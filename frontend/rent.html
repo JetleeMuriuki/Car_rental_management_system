@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent now - Swift wheels</title>
+    <style>
+        body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+header {
+  text-align: center;
+  padding: 20px;
+  background-color: #333;
+  color: white;
+}
+
+main {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.car-details {
+  text-align: center;
+  background-color: white;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 30%;
+}
+
+.car-details img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.car-details h2 {
+  margin: 10px 0;
+}
+
+.car-details p {
+  color: #555;
+}
+
+.booking-form {
+  background-color: white;
+  padding: 20px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 1000px;
+}
+
+.booking-form h2 {
+  margin-bottom: 20px;
+}
+
+.booking-form label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+.booking-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.booking-form button {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.booking-form button:hover {
+  background-color: #555;
+}
+
+footer {
+  text-align: center;
+  padding: 1px;
+  background-color: #333;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+    </style>
+</head>
+<body>
+    <header>
+      <h1>Rent Now</h1>
+      <p>Complete your booking</p>
+    </header>
+  
+    <main>
+      <!-- Car details will load here dynamically -->
+      <section class="car-details">
+        <img id="car-image" src="" alt="Car Image">
+        <h2 id="car-name"></h2>
+        <p id="car-price"></p>
+      </section>
+  
+      <!-- Booking form -->
+            <section class="booking-form">
+                <h2>Booking Details</h2>
+                <form id="rentForm">
+                  <label for="name">Full Name:</label>
+                  <input type="text" id="name" name="name" required>
+          
+                  <label for="email">Email:</label>
+                  <input type="email" id="email" name="email" required>
+          
+                  <label for="phone">Phone Number:</label>
+                  <input type="tel" id="phone" name="phone" required>
+          
+                  <label for="pickup-date">Pickup Date:</label>
+                  <input type="date" id="pickup-date" name="pickup-date" required>
+          
+                  <label for="return-date">Return Date:</label>
+                  <input type="date" id="return-date" name="return-date" required>
+          
+                  <button type="submit">Confirm Booking</button>
+                </form>
+      </section>
+    </main>
+  
+    <footer>
+        <p>Contact us: info@carrental.com | +245 712 345 689</p>
+    </footer>
+  
+    <script src="rent.js"></script>
+  </body>
+  </html>

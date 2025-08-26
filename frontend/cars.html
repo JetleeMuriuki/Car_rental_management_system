@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car catalog</title>
+    <style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+header {
+  text-align: center;
+  padding: 15px;
+  background-color: #333;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+
+}
+
+.header-content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.title h1 {
+    margin: 0;
+    font-size: 24px;
+    white-space: nowrap;
+}
+
+.title p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    opacity: 0.8;
+    white-space: nowrap;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: auto;
+}
+
+.user-info span {
+    font-weight: bold;
+}
+
+.logout-btn {
+    background: none;
+    border: 1px solid white;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.filter {
+  text-align: center;
+  margin: 20px;
+}
+
+.filter input, .filter select {
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.catalogue {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.car-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  width: 210px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.car-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.car-card h3 {
+  margin: 10px 0;
+}
+
+.car-card p {
+  color: #555;
+}
+
+.car-card button {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+footer {
+  text-align: center;
+  padding: auto;
+  background-color: #333;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+} 
+    </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+        <div class="title">
+            <h1>Swift Wheels Car Rentals</h1>
+            <p>Choose your perfect ride!</p>
+        </div>
+        <div class="user-info" id="userInfo">
+            <!-- dynamically populated by javascript -->
+        </div>
+    </div>
+  </header>
+    <div class="filter">
+        <input type="text" id="search" placeholder="Search by car name..."><!--This searches the car by name-->
+        <select id="filter">
+          <!--This filters the car by type-->
+          <option value="all">All</option>
+          <option value="suv">SUV</option>
+          <option value="sedan">Sedan</option>
+          <option value="sports">Sports</option>
+        </select>
+    </div>
+    
+    <div class="catalogue" id="catalogue">
+             <!-- Car Cards -->
+        <!-- Dynamically populated by JavaScript -->
+
+    </div>
+    
+      <footer>
+        <p>Contact us: info@swiftwheels.com | +254 712 345 689</p>
+      </footer>
+    
+      <script src="cars.js"></script>
+</body>
+</html>

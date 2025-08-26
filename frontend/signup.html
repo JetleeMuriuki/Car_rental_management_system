@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 25px;
+            color: #191919;
+        }
+
+        .form-label {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 3px;
+        }
+
+        input[type="email"],
+        input[type="password"],
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #333;
+        }
+
+
+        .submit-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #4caf72;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background-color: #42a747;
+        }
+
+        .form-footer {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .form-footer a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+
+        .form-footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>REGISTER</h2>
+        <form id="signup" action="" method="POST">
+            <div class="form-label">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-label">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-label">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="">Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="form-label">
+                <label for="id-number">ID Number:</label>
+                <input type="text" id="id-number" name="id-number" required>
+            </div>
+            <button type="submit" class="submit-btn">Sign Up</button>
+        </form>
+
+        <div class="form-footer">
+            <p>Already have an account? <a href="login.html">Login</a></p>
+        </div>
+    </div>
+    
+</body>
+</html>
+<script>
+    document.getElementById('signup').addEventListener('submit', async function(e) {e.preventDefault();
+
+        const userData = {
+            email: document.getElementById('email').value,
+            password: document.getElementById('password').value,
+            gender: document.getElementById('gender').value,
+            idNumber: document.getElementById('id-number').value
+        };
+
+        try {
+                const response = await fetch('http://localhost:3000/auth/signup', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(userData),
+                });
+
+                const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.error || 'Signup failed. Please try again.');
+        }
+
+        alert('Signup successful! Redirecting to login...');
+        window.location.href = 'login.html'; // Redirect to login page
+
+    } catch (error) {
+        console.error('Signup Error:', error);
+        alert(error.message || 'An unexpected error occurred. Please try again.');
+    }
+});
+</script>
